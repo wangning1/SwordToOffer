@@ -42,9 +42,10 @@ public class Solution {
                 int leftRoot = inOrder[leftIndex];
                 int leftRootMinIndex = preOrderValueIndexMap.get(leftRoot);
                 for (int i = leftIndex; i <= index - 1; i++) {
-                    if (leftRootMinIndex > preOrderValueIndexMap.get(inOrder[i])) {
+                    int tmpIndex = preOrderValueIndexMap.get(inOrder[i]);
+                    if (leftRootMinIndex > tmpIndex) {
                         leftRoot = inOrder[i];
-                        leftRootMinIndex = i;
+                        leftRootMinIndex = preOrderValueIndexMap.get(inOrder[i]);
                     }
                 }
                 node.left = buildTreeCore(leftIndex, index - 1, leftRoot);
@@ -59,7 +60,7 @@ public class Solution {
                 for (int i = index + 1; i <= rightIndex; i++) {
                     if (rightRootMinIndex > preOrderValueIndexMap.get(inOrder[i])) {
                         rightRoot = inOrder[i];
-                        rightRootMinIndex = i;
+                        rightRootMinIndex = preOrderValueIndexMap.get(inOrder[i]);
                     }
                 }
                 node.right = buildTreeCore(index + 1, rightIndex, rightRoot);
