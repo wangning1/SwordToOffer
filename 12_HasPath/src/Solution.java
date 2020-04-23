@@ -27,6 +27,9 @@ public class Solution {
         if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) {
             return;
         }
+        if (!result.isEmpty()) {
+            return;
+        }
 
         if (visited[i][j]) {
             return;
