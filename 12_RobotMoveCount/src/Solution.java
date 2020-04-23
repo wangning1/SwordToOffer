@@ -32,9 +32,9 @@ public class Solution {
 
         visited[i][j] = true;
         caculateCore(i + 1, j, m, n, k, visited, map);
-        caculateCore(i - 1, j, m, n, k, visited, map);
+//        caculateCore(i - 1, j, m, n, k, visited, map);
         caculateCore(i, j + 1, m, n, k, visited, map);
-        caculateCore(i, j - 1, m, n, k, visited, map);
+//        caculateCore(i, j - 1, m, n, k, visited, map);
 //        visited[i][j] = false;
     }
 
