@@ -29,6 +29,16 @@ public class Solution {
         return null;
     }
 
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root == p || root == q) {
+            return root;
+        }
+
+        TreeNode left = lowestCommonAncestor2(root.left, p, q);
+        TreeNode right = lowestCommonAncestor2(root.right, p, q);
+        return left == null ? right : right == null ? left : root;
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(6);
         root.left = new TreeNode(2);
@@ -44,5 +54,7 @@ public class Solution {
         Solution solution = new Solution();
         System.out.println(solution.lowestCommonAncestor(root, root.right, root.left).val);
         System.out.println(solution.lowestCommonAncestor(root, root.left, root.left.left).val);
+
+        System.out.println(solution.lowestCommonAncestor2(root, root.left, root.left.left).val);
     }
 }
